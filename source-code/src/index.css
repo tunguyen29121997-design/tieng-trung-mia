@@ -1,0 +1,967 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", "Inter", ui-sans-serif, sans-serif;
+  --font-serif: "Outfit", "Noto Serif SC", ui-serif, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* Custom 3D Flashcard Flip */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Custom scrollbar optimized for Navy Blue */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0f19;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3b82f6;
+}
+
+/* Animations & Visual Effects */
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-6px) scale(1.02); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(34, 211, 238, 0.2); }
+  50% { box-shadow: 0 0 15px rgba(34, 211, 238, 0.5); }
+}
+
+@keyframes text-shine {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes ripple {
+  0% { transform: scale(0.95); opacity: 0.5; }
+  100% { transform: scale(1.3); opacity: 0; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in-scale {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2.5s infinite ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in-scale {
+  animation: fade-in-scale 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.text-gradient-shimmer {
+  background: linear-gradient(to right, #60a5fa, #22d3ee, #818cf8, #60a5fa);
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: text-shine 6s linear infinite;
+}
+
+.navy-card-glow {
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.7);
+}
+
+.navy-card-hover:hover {
+  transform: translateY(-4px) scale(1.015);
+  border-color: rgba(34, 211, 238, 0.4);
+  box-shadow: 0 10px 25px -5px rgba(34, 211, 238, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.6);
+}
+
+.audio-pulse {
+  position: relative;
+}
+.audio-pulse::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border: 2px solid #2a834c;
+  border-radius: 9999px;
+  animation: ripple 1.2s infinite ease-out;
+  pointer-events: none;
+}
+
+/* ==========================================================
+   TIẾNG TRUNG MIA - PASTEL GREEN (XANH LÁ PASTEL NHẸ NHÀNG) DESIGN SYSTEM
+   ========================================================== */
+
+#main-app {
+  background-color: #f4fbf7 !important;
+  color: #1b4d2c !important;
+}
+
+#app-header {
+  background-color: #ffffff !important;
+  border-color: #c8e6c9 !important;
+  backdrop-filter: blur(12px) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+}
+
+#level-nav {
+  background-color: #e8f5e9 !important;
+  border-color: #c8e6c9 !important;
+}
+
+#brand-logo h1 {
+  color: #1b4d2c !important;
+}
+
+#brand-logo p {
+  color: #4a7a56 !important;
+}
+
+#header-stats {
+  background-color: #e8f5e9 !important;
+  border-color: #c8e6c9 !important;
+  color: #1b4d2c !important;
+}
+
+#header-stats span, #header-stats svg {
+  color: #2e6a41 !important;
+}
+
+/* Level Nav Buttons */
+#level-nav button {
+  color: #2e6a41 !important;
+}
+
+#level-nav button:hover {
+  background-color: rgba(200, 230, 201, 0.4) !important;
+  color: #1b4d2c !important;
+}
+
+#level-nav button.bg-gradient-to-r,
+#level-nav button#nav-home.bg-gradient-to-r,
+#level-nav button.bg-\[\#1b4d2c\],
+#level-nav button.bg-emerald-700 {
+  background: #1b4d2c !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(27, 77, 44, 0.15) !important;
+}
+
+#level-nav button[id^="nav-hsk"] {
+  border-color: transparent !important;
+}
+
+/* Workspace Wrapper */
+#app-workspace {
+  background-color: #f2fbeb !important;
+  color: #2e3a31 !important;
+}
+
+/* Hero Board */
+#hero-board {
+  background: linear-gradient(135deg, #1b4d2c, #2d6a4f) !important;
+  border-color: #2d6a4f !important;
+  color: #ffffff !important;
+  box-shadow: 0 10px 30px rgba(27, 77, 44, 0.1) !important;
+}
+
+#hero-board h2 {
+  color: #ffffff !important;
+}
+
+#hero-board p, #hero-board strong {
+  color: #e2f1e6 !important;
+}
+
+#hero-board span.bg-cyan-500\/10 {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  color: #ffffff !important;
+}
+
+/* Cards (Lessons, bento blocks, word lists) */
+.bg-\[\#131b32\]\/90,
+.bg-\[\#131b32\]\/95,
+.bg-\[\#131b32\],
+div[class*="bg-[#131b32]"] {
+  background-color: #ffffff !important;
+  border-color: #c8e6c9 !important;
+  color: #2e3a31 !important;
+  box-shadow: 0 4px 12px rgba(27, 77, 44, 0.04) !important;
+}
+
+/* Hover effects for cards */
+.navy-card-hover:hover {
+  transform: translateY(-4px) scale(1.01) !important;
+  border-color: #1b4d2c !important;
+  box-shadow: 0 10px 25px rgba(27, 77, 44, 0.08) !important;
+}
+
+/* Headers on Level View */
+#level-info-header {
+  background-color: #ffffff !important;
+  border-color: #c8e6c9 !important;
+  box-shadow: 0 4px 12px rgba(27, 77, 44, 0.04) !important;
+}
+
+#level-info-header h2 {
+  color: #1b4d2c !important;
+}
+
+#level-info-header p, #level-info-header span {
+  color: #4a5c50 !important;
+}
+
+/* Feature grid cards on home */
+#features-grid > div {
+  background-color: #ffffff !important;
+  border-color: #c8e6c9 !important;
+}
+
+#features-grid > div h3 {
+  color: #1b4d2c !important;
+}
+
+#features-grid > div p {
+  color: #4a5c50 !important;
+}
+
+#features-grid > div > div {
+  background-color: #e8f5e9 !important;
+  border-color: #c8e6c9 !important;
+  color: #1b4d2c !important;
+}
+
+/* Sub-tab Selection Bar */
+#subtab-selector {
+  background-color: #e8f5e9 !important;
+  border-color: #c8e6c9 !important;
+}
+
+#subtab-selector button {
+  color: #4a5c50 !important;
+}
+
+#subtab-selector button.bg-gradient-to-r,
+#subtab-selector button.bg-gradient-to-br,
+#subtab-selector button[class*="bg-gradient-to-r"] {
+  background: #1b4d2c !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 10px rgba(27, 77, 44, 0.15) !important;
+}
+
+/* Flashcards 3D fronts and backs */
+div.perspective-1000 .backface-hidden {
+  background-color: #ffffff !important;
+  border-color: #c8e6c9 !important;
+  box-shadow: 0 12px 36px rgba(27, 77, 44, 0.06) !important;
+}
+
+div.perspective-1000 h3 {
+  color: #1b4d2c !important;
+}
+
+div.perspective-1000 p.text-cyan-400,
+div.perspective-1000 p.text-indigo-600 {
+  color: #2e6a41 !important;
+}
+
+/* Stroke views & Stroke Order visualizer */
+.stroke-box, .strokes-container {
+  background-color: #ffffff !important;
+  border-color: #c8e6c9 !important;
+}
+
+/* Search Results and Text Inputs */
+input[type="text"] {
+  background-color: #ffffff !important;
+  border-color: #c8e6c9 !important;
+  color: #1b4d2c !important;
+}
+
+input[type="text"]:focus {
+  border-color: #1b4d2c !important;
+  box-shadow: 0 0 0 3px rgba(27, 77, 44, 0.1) !important;
+}
+
+#search-results-panel {
+  background-color: #ffffff !important;
+  border-color: #c8e6c9 !important;
+}
+
+#search-results-panel h3 {
+  color: #1b4d2c !important;
+}
+
+#search-results-panel div.bg-\[\#0c132c\]\/80 {
+  background-color: #f4fbf7 !important;
+  border-color: #c8e6c9 !important;
+}
+
+#search-results-panel div.bg-\[\#0c132c\]\/80:hover {
+  border-color: #1b4d2c !important;
+}
+
+/* Quiz Choices & Score Panel */
+#subtab-quiz-view {
+  color: #2e3a31 !important;
+}
+
+#subtab-quiz-view span.text-slate-400 {
+  color: #4a5c50 !important;
+}
+
+#subtab-quiz-view span.text-cyan-300 {
+  background-color: #e8f5e9 !important;
+  border-color: #c8e6c9 !important;
+  color: #1b4d2c !important;
+}
+
+#subtab-quiz-view .bg-\[\#0b0f19\] {
+  background-color: #ffffff !important;
+  border-color: #c8e6c9 !important;
+}
+
+#subtab-quiz-view button {
+  background-color: #f4fbf7 !important;
+  border-color: #c8e6c9 !important;
+  color: #1b4d2c !important;
+}
+
+#subtab-quiz-view button:hover {
+  background-color: #e8f5e9 !important;
+  border-color: #1b4d2c !important;
+}
+
+/* Correct and Incorrect option indicators */
+#subtab-quiz-view button.bg-emerald-950\/50,
+#subtab-quiz-view button.bg-emerald-600 {
+  background-color: #c8e6c9 !important;
+  border-color: #1b4d2c !important;
+  color: #1b4d2c !important;
+}
+
+#subtab-quiz-view button.bg-red-950\/40,
+#subtab-quiz-view button.bg-red-600 {
+  background-color: #ffcdd2 !important;
+  border-color: #d32f2f !important;
+  color: #c62828 !important;
+}
+
+/* Quiz explanations */
+#subtab-quiz-view div.bg-emerald-950\/30 {
+  background-color: #e8f5e9 !important;
+  border-color: #c8e6c9 !important;
+  color: #1b4d2c !important;
+}
+
+#subtab-quiz-view div.bg-cyan-950\/30 {
+  background-color: #e8f5e9 !important;
+  border-color: #c8e6c9 !important;
+  color: #1b4d2c !important;
+}
+
+/* Typing Practice Views */
+#typing-board {
+  background-color: #ffffff !important;
+  border-color: #c8e6c9 !important;
+}
+
+#typing-board h4, #typing-board p {
+  color: #1b4d2c !important;
+}
+
+#typing-board span.text-cyan-400 {
+  color: #2e6a41 !important;
+}
+
+#typing-board div.bg-cyan-950\/15 {
+  background-color: #e8f5e9 !important;
+  border-color: #c8e6c9 !important;
+}
+
+#typing-board div.bg-cyan-950\/15 span.text-cyan-400 {
+  color: #1b4d2c !important;
+}
+
+#typing-input-field {
+  background-color: #ffffff !important;
+  border-color: #c8e6c9 !important;
+  color: #1b4d2c !important;
+}
+
+#typing-input-field:focus {
+  background-color: #ffffff !important;
+  border-color: #1b4d2c !important;
+  box-shadow: 0 0 0 3px rgba(27, 77, 44, 0.1) !important;
+}
+
+#typing-board button {
+  background-color: #e8f5e9 !important;
+  border-color: #c8e6c9 !important;
+  color: #1b4d2c !important;
+}
+
+#typing-board button:hover {
+  background-color: #c8e6c9 !important;
+  border-color: #1b4d2c !important;
+}
+
+#typing-board button.bg-cyan-500,
+#typing-board button[class*="bg-cyan-500"] {
+  background-color: #1b4d2c !important;
+  color: #ffffff !important;
+}
+
+#typing-board button.bg-cyan-500:hover {
+  background-color: #2e6a41 !important;
+}
+
+/* Button & Gradients fallback overrides */
+.bg-gradient-to-r.from-cyan-500.to-blue-600,
+.bg-gradient-to-r.from-blue-600.to-cyan-500,
+.bg-gradient-to-r.from-cyan-500.to-blue-600:hover,
+.bg-gradient-to-r.from-blue-600.to-cyan-500:hover,
+.bg-gradient-to-r.from-emerald-600 {
+  background: #1b4d2c !important;
+  color: #ffffff !important;
+}
+
+/* Footer elements */
+#app-footer-credit {
+  background-color: #e8f5e9 !important;
+  border-color: #c8e6c9 !important;
+  color: #4a5c50 !important;
+}
+
+#app-footer-credit p.text-cyan-400\/90 {
+  color: #1b4d2c !important;
+}
+
+/* --- Focus Mode Styles --- */
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > header#app-header:nth-of-type(1) > div:nth-of-type(1) {
+  background-color: #002f15 !important;
+  border-color: #1b5f1b !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > nav#level-nav:nth-of-type(1) > div:nth-of-type(1) {
+  background-color: #0d3313 !important;
+  border-color: #1ea347 !important;
+  color: #0b421c !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > nav#level-nav:nth-of-type(1) > div:nth-of-type(1) > button#nav-hsk2:nth-of-type(3) {
+  border-color: #1b5f1b !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#home-view:nth-of-type(1) > div#hero-board:nth-of-type(1) {
+  background-color: #002f15 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > header#app-header:nth-of-type(1) > div:nth-of-type(1) > div#brand-logo:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1) {
+  color: #a2afa5 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > header#app-header:nth-of-type(1) > div:nth-of-type(1) > div#brand-logo:nth-of-type(1) > div:nth-of-type(2) > h1:nth-of-type(1) {
+  color: #fbfbfb !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > header#app-header:nth-of-type(1) > div:nth-of-type(1) > div#brand-logo:nth-of-type(1) > div:nth-of-type(2) > h1:nth-of-type(1) > span:nth-of-type(1) {
+  color: #a7d0b0 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > footer#app-footer-credit:nth-of-type(1) {
+  background-color: #0f3f22 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > footer#app-footer-credit:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1) {
+  color: #699676 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > footer#app-footer-credit:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2) {
+  color: #699676 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#home-view:nth-of-type(1) > div#features-grid:nth-of-type(2) > div:nth-of-type(1) {
+  background-color: #bfe6c2 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#home-view:nth-of-type(1) > div#features-grid:nth-of-type(2) > div:nth-of-type(2) {
+  background-color: #bfe6c2 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#home-view:nth-of-type(1) > div#features-grid:nth-of-type(2) > div:nth-of-type(3) {
+  background-color: #bfe6c2 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#home-view:nth-of-type(1) > div#features-grid:nth-of-type(2) > div:nth-of-type(4) {
+  background-color: #bfe6c2 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#home-view:nth-of-type(1) > div#level-selection-panel:nth-of-type(3) > div:nth-of-type(1) > div#card-hsk1:nth-of-type(1) {
+  color: #bfe6c2 !important;
+  background-color: #bfe6c2 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#home-view:nth-of-type(1) > div#level-selection-panel:nth-of-type(3) > div:nth-of-type(1) > div#card-hsk2:nth-of-type(2) {
+  background-color: #bfe6c2 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#home-view:nth-of-type(1) > div#level-selection-panel:nth-of-type(3) > div:nth-of-type(1) > div#card-hsk3:nth-of-type(3) {
+  background-color: #bfe6c2 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#home-view:nth-of-type(1) > div#level-selection-panel:nth-of-type(3) > div:nth-of-type(1) > div#card-hsk4:nth-of-type(4) {
+  background-color: #bfe6c2 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#home-view:nth-of-type(1) > div#level-selection-panel:nth-of-type(3) > div:nth-of-type(1) > div#card-hsk5:nth-of-type(5) {
+  background-color: #bfe6c2 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#home-view:nth-of-type(1) > div#level-selection-panel:nth-of-type(3) > div:nth-of-type(1) > div#card-hsk6:nth-of-type(6) {
+  background-color: #bfe6c2 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#home-view:nth-of-type(1) > div#level-selection-panel:nth-of-type(3) > div:nth-of-type(1) > div#card-hsk79:nth-of-type(7) {
+  background-color: #c1e5c8 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#home-view:nth-of-type(1) > div#level-selection-panel:nth-of-type(3) > div:nth-of-type(1) > div#card-hsk1:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) {
+  color: #ffffff !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#home-view:nth-of-type(1) > div#level-selection-panel:nth-of-type(3) > div:nth-of-type(1) > div#card-hsk1:nth-of-type(1) > h4:nth-of-type(1) {
+  color: #000000 !important;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#home-view:nth-of-type(1) > div#level-selection-panel:nth-of-type(3) > div:nth-of-type(1) > div#card-hsk1:nth-of-type(1) > p:nth-of-type(1) {
+  color: #888888 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#home-view:nth-of-type(1) > div#level-selection-panel:nth-of-type(3) > div:nth-of-type(1) > div#card-hsk2:nth-of-type(2) > h4:nth-of-type(1) {
+  color: #000000 !important;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#home-view:nth-of-type(1) > div#level-selection-panel:nth-of-type(3) > div:nth-of-type(1) > div#card-hsk2:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(1) {
+  color: #ffffff !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#home-view:nth-of-type(1) > div#level-selection-panel:nth-of-type(3) > div:nth-of-type(1) > div#card-hsk2:nth-of-type(2) > p:nth-of-type(1) {
+  color: #888888 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#home-view:nth-of-type(1) > div#level-selection-panel:nth-of-type(3) > div:nth-of-type(1) > div#card-hsk3:nth-of-type(3) > div:nth-of-type(1) > span:nth-of-type(1) {
+  color: #ffffff !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#home-view:nth-of-type(1) > div#level-selection-panel:nth-of-type(3) > div:nth-of-type(1) > div#card-hsk4:nth-of-type(4) > div:nth-of-type(1) > span:nth-of-type(1) {
+  color: #ffffff !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#home-view:nth-of-type(1) > div#level-selection-panel:nth-of-type(3) > div:nth-of-type(1) > div#card-hsk3:nth-of-type(3) > h4:nth-of-type(1) {
+  color: #000000 !important;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#home-view:nth-of-type(1) > div#level-selection-panel:nth-of-type(3) > div:nth-of-type(1) > div#card-hsk3:nth-of-type(3) > p:nth-of-type(1) {
+  color: #888888 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#home-view:nth-of-type(1) > div#level-selection-panel:nth-of-type(3) > div:nth-of-type(1) > div#card-hsk4:nth-of-type(4) > h4:nth-of-type(1) {
+  color: #000000 !important;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#home-view:nth-of-type(1) > div#level-selection-panel:nth-of-type(3) > div:nth-of-type(1) > div#card-hsk4:nth-of-type(4) > p:nth-of-type(1) {
+  color: #888888 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#home-view:nth-of-type(1) > div#level-selection-panel:nth-of-type(3) > div:nth-of-type(1) > div#card-hsk5:nth-of-type(5) > div:nth-of-type(1) > span:nth-of-type(1) {
+  color: #ffffff !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#home-view:nth-of-type(1) > div#level-selection-panel:nth-of-type(3) > div:nth-of-type(1) > div#card-hsk5:nth-of-type(5) > h4:nth-of-type(1) {
+  color: #000000 !important;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#home-view:nth-of-type(1) > div#level-selection-panel:nth-of-type(3) > div:nth-of-type(1) > div#card-hsk5:nth-of-type(5) > p:nth-of-type(1) {
+  color: #888888 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#home-view:nth-of-type(1) > div#level-selection-panel:nth-of-type(3) > div:nth-of-type(1) > div#card-hsk6:nth-of-type(6) > div:nth-of-type(1) > span:nth-of-type(1) {
+  color: #ffffff !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#home-view:nth-of-type(1) > div#level-selection-panel:nth-of-type(3) > div:nth-of-type(1) > div#card-hsk6:nth-of-type(6) > h4:nth-of-type(1) {
+  color: #000000 !important;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#home-view:nth-of-type(1) > div#level-selection-panel:nth-of-type(3) > div:nth-of-type(1) > div#card-hsk6:nth-of-type(6) > p:nth-of-type(1) {
+  color: #888888 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#home-view:nth-of-type(1) > div#level-selection-panel:nth-of-type(3) > div:nth-of-type(1) > div#card-hsk79:nth-of-type(7) > p:nth-of-type(1) {
+  color: #888888 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#home-view:nth-of-type(1) > div#level-selection-panel:nth-of-type(3) > div:nth-of-type(1) > div#card-hsk79:nth-of-type(7) > h4:nth-of-type(1) {
+  color: #000000 !important;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#home-view:nth-of-type(1) > div#level-selection-panel:nth-of-type(3) > div:nth-of-type(1) > div#card-hsk79:nth-of-type(7) > div:nth-of-type(1) > span:nth-of-type(1) {
+  color: #ffffff !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#home-view:nth-of-type(1) > div#level-selection-panel:nth-of-type(3) > h3:nth-of-type(1) {
+  color: #93ba93 !important;
+  font-family: 'Times New Roman', Times, serif !important;
+  background-color: #255236 !important;
+  border-color: #a5d8a8 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > nav#level-nav:nth-of-type(1) > div:nth-of-type(1) {
+  color: #a5d8a8 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > header#app-header:nth-of-type(1) > div:nth-of-type(1) {
+  color: #a5d8a8 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#home-view:nth-of-type(1) > div#hero-board:nth-of-type(1) > div:nth-of-type(2) > h2:nth-of-type(1) {
+  font-family: Verdana !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > header#app-header:nth-of-type(1) > div:nth-of-type(1) > div#brand-logo:nth-of-type(1) > div:nth-of-type(2) > h1:nth-of-type(1) {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#level-info-header:nth-of-type(1) {
+  background-color: #002f15 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#level-info-header:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1) {
+  background-color: #002f15 !important;
+  color: #94aa8f !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-1:nth-of-type(1) {
+  background-color: #bfe6c2 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-2:nth-of-type(2) > div:nth-of-type(2) > h4:nth-of-type(1) {
+  color: #000000 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-2:nth-of-type(2) {
+  background-color: #bfe6c2 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-3:nth-of-type(3) {
+  background-color: #bfe6c2 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-4:nth-of-type(4) {
+  background-color: #bfe6c2 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-5:nth-of-type(5) {
+  background-color: #bfe6c2 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-6:nth-of-type(6) {
+  background-color: #bfe6c2 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-7:nth-of-type(7) {
+  background-color: #bfe6c2 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-8:nth-of-type(8) {
+  background-color: #bfe6c2 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-9:nth-of-type(9) {
+  background-color: #bfe6c2 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-10:nth-of-type(10) {
+  background-color: #bfe6c2 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-11:nth-of-type(11) {
+  background-color: #bfe6c2 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-1:nth-of-type(1) > div:nth-of-type(2) > h4:nth-of-type(1) {
+  color: #000000 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-1:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(2) {
+  color: #000000 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-1:nth-of-type(1) > div:nth-of-type(1) {
+  color: #ffffff !important;
+  background-color: #19332a !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-1:nth-of-type(1) > div:nth-of-type(2) > h3:nth-of-type(1) {
+  background-color: #bfe6c2 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-2:nth-of-type(2) > div:nth-of-type(1) {
+  background-color: #19332a !important;
+  color: #ffffff !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-4:nth-of-type(4) > div:nth-of-type(1) {
+  background-color: #19332a !important;
+  color: #ffffff !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-3:nth-of-type(3) > div:nth-of-type(1) {
+  background-color: #19332a !important;
+  color: #ffffff !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-5:nth-of-type(5) > div:nth-of-type(1) {
+  background-color: #19332a !important;
+  color: #ffffff !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-6:nth-of-type(6) > div:nth-of-type(1) {
+  background-color: #19332a !important;
+  color: #ffffff !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-7:nth-of-type(7) > div:nth-of-type(1) {
+  background-color: #19332a !important;
+  color: #ffffff !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-8:nth-of-type(8) > div:nth-of-type(1) {
+  background-color: #19332a !important;
+  color: #ffffff !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-9:nth-of-type(9) > div:nth-of-type(1) {
+  background-color: #19332a !important;
+  color: #ffffff !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-10:nth-of-type(10) > div:nth-of-type(1) {
+  background-color: #19332a !important;
+  color: #ffffff !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-11:nth-of-type(11) > div:nth-of-type(1) {
+  background-color: #19332a !important;
+  color: #ffffff !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-2:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(2) {
+  color: #000000 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-3:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(2) {
+  color: #000000 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-3:nth-of-type(3) > div:nth-of-type(2) > h4:nth-of-type(1) {
+  color: #000000 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-4:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(2) {
+  color: #000000 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-4:nth-of-type(4) > div:nth-of-type(2) > h4:nth-of-type(1) {
+  color: #000000 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-5:nth-of-type(5) > div:nth-of-type(2) > h4:nth-of-type(1) {
+  color: #000000 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-5:nth-of-type(5) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(2) {
+  color: #000000 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-6:nth-of-type(6) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(2) {
+  color: #050505 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-6:nth-of-type(6) > div:nth-of-type(2) > h4:nth-of-type(1) {
+  color: #000000 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-7:nth-of-type(7) > div:nth-of-type(2) > h4:nth-of-type(1) {
+  color: #000000 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-7:nth-of-type(7) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(2) {
+  color: #000000 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-8:nth-of-type(8) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(2) {
+  color: #000000 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-10:nth-of-type(10) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(2) {
+  color: #000000 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-9:nth-of-type(9) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(2) {
+  color: #000000 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-9:nth-of-type(9) > div:nth-of-type(2) > h4:nth-of-type(1) {
+  color: #000000 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-8:nth-of-type(8) > div:nth-of-type(2) > h4:nth-of-type(1) {
+  color: #000000 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-10:nth-of-type(10) > div:nth-of-type(2) > h4:nth-of-type(1) {
+  color: #000000 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-11:nth-of-type(11) > div:nth-of-type(2) > h4:nth-of-type(1) {
+  color: #000000 !important;
+}
+
+div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-11:nth-of-type(11) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(2) {
+  color: #000000 !important;
+}
+
+/* Unified lesson-card appearance: every lesson follows the highlighted sample. */
+#lessons-grid > .lesson-card {
+  background-color: #bfe6c2 !important;
+  border-color: #a5d8a8 !important;
+}
+
+#lessons-grid > .lesson-card:hover {
+  border-color: #19332a !important;
+  box-shadow: 0 10px 24px rgba(25, 51, 42, 0.12) !important;
+}
+
+#lessons-grid .lesson-card-number {
+  background-color: #19332a !important;
+  border-color: #19332a !important;
+  color: #ffffff !important;
+}
+
+#lessons-grid .lesson-card-label,
+#lessons-grid .lesson-card-action {
+  color: #000000 !important;
+}
+
+#lessons-grid .lesson-card-title {
+  color: #ffffff !important;
+  background: transparent !important;
+}
+
+#lessons-grid .lesson-card-description,
+#lessons-grid .lesson-card-count {
+  color: #8797b3 !important;
+}
+
+#lessons-grid .lesson-card-footer {
+  border-color: #19332a !important;
+}
+
+/* Match the vocabulary list to the unified green lesson-card palette. */
+#words-glossary-list .word-list-heading {
+  color: #19332a !important;
+}
+
+#words-glossary-list .word-list-item {
+  background-color: #bfe6c2 !important;
+  border-color: #a5d8a8 !important;
+  box-shadow: 0 4px 12px rgba(25, 51, 42, 0.05) !important;
+}
+
+#words-glossary-list .word-list-item:hover,
+#words-glossary-list .word-list-item-selected {
+  background-color: #aedcaf !important;
+  border-color: #19332a !important;
+  box-shadow: 0 8px 20px rgba(25, 51, 42, 0.12) !important;
+}
+
+#words-glossary-list .word-list-hanzi,
+#words-glossary-list .word-list-pinyin {
+  color: #19332a !important;
+}
+
+#words-glossary-list .word-list-pos {
+  background-color: #19332a !important;
+  color: #ffffff !important;
+}
+
+#words-glossary-list .word-list-meaning {
+  color: #31473b !important;
+}
+
+#words-glossary-list .word-list-example {
+  color: #66786c !important;
+}
+
+#words-glossary-list .word-list-audio {
+  color: #19332a !important;
+}
+
+#words-glossary-list .word-list-audio:hover {
+  background-color: rgba(25, 51, 42, 0.12) !important;
+  color: #002f15 !important;
+}
+
+#words-glossary-list .word-list-strokes {
+  background: #19332a !important;
+  border-color: #19332a !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+#words-glossary-list .word-list-strokes:hover {
+  background: #002f15 !important;
+  border-color: #002f15 !important;
+}
+
+
