@@ -253,11 +253,11 @@ export default function App() {
 
           {/* Quick Stats Banner with Navy accents */}
           <div className="flex items-center gap-4 text-xs font-medium text-slate-300 bg-[#121c3a] px-3.5 py-1.5 rounded-lg border border-[#1e2e61] self-start md:self-auto shadow-inner" id="header-stats">
-            <span className="flex items-center gap-1"><Trophy size={13} className="text-amber-400 animate-pulse" /> 9 Cấp Độ</span>
+            <span className="flex items-center gap-1"><Trophy size={13} className="header-trophy-icon animate-pulse" /> 9 Cấp Độ</span>
             <span className="w-[1px] h-3 bg-[#1e2e61]"></span>
             <span className="flex items-center gap-1"><Keyboard size={13} className="text-cyan-400" /> Luyện Gõ IME</span>
             <span className="w-[1px] h-3 bg-[#1e2e61]"></span>
-            <span className="flex items-center gap-1"><Flame size={13} className="text-orange-400 animate-bounce" /> Chuỗi: {typeStreak}</span>
+            <span className="flex items-center gap-1"><Flame size={13} className="header-flame-icon animate-bounce" /> Chuỗi: {typeStreak}</span>
           </div>
 
         </div>
@@ -314,33 +314,91 @@ export default function App() {
             
             {/* Elegant Hero Board - Navy Cosmic Theme */}
             <div className="bg-gradient-to-br from-[#0c132c] via-[#111a3b] to-[#070b19] text-slate-100 rounded-2xl p-6 md:p-10 shadow-2xl relative overflow-hidden border border-[#1e2e61] navy-card-glow" id="hero-board">
-              <div className="absolute right-0 bottom-0 opacity-5 font-serif text-9xl -mr-10 -mb-10 pointer-events-none select-none text-cyan-400">
-                學習
-              </div>
-              
-              <div className="max-w-2xl space-y-4">
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-cyan-500/10 text-cyan-300 rounded-full text-xs font-bold border border-cyan-500/20">
-                  <Sparkles size={12} className="animate-spin" />
-                  Học thông minh hơn mỗi ngày
-                </span>
-                
-                <h2 className="text-3xl md:text-4xl font-serif font-bold tracking-tight text-gradient-shimmer leading-tight">
-                  Chinh phục chữ Hán với Phương Pháp Đa Tương Tác
-                </h2>
-                
-                <p className="text-slate-300 leading-relaxed text-sm md:text-base">
-                  Hệ thống hỗ trợ toàn diện 9 cấp độ HSK 3.0 mới nhất. Thực hành học từ vựng trực quan, lật thẻ flashcard 3D, luyện thi trắc nghiệm thông minh và đặc biệt là hệ thống <strong>Luyện gõ chữ Hán (Type Text)</strong> giúp ghi nhớ tự nhiên cấu trúc chữ.
-                </p>
+              <div className="hero-content-grid relative z-10 grid grid-cols-1 lg:grid-cols-[1.08fr_0.92fr] items-center gap-8">
+                <div className="max-w-2xl space-y-4">
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-cyan-500/10 text-cyan-300 rounded-full text-xs font-bold border border-cyan-500/20">
+                    <Sparkles size={12} className="animate-spin" />
+                    Học thông minh hơn mỗi ngày
+                  </span>
 
-                <div className="pt-2 flex flex-wrap gap-3">
-                  <button 
-                    onClick={() => setActiveTab('hsk1')}
-                    className="px-5 py-2.5 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold text-sm rounded-xl shadow-lg shadow-cyan-500/15 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer flex items-center gap-1.5"
-                    id="btn-start-now"
-                  >
-                    <span>Học HSK 1 ngay</span>
-                    <ArrowRight size={15} />
-                  </button>
+                  <h2 className="text-3xl md:text-4xl font-serif font-bold tracking-tight text-gradient-shimmer leading-tight">
+                    Chinh phục chữ Hán với Phương Pháp <span className="hero-accent">Đa Tương Tác</span>
+                  </h2>
+
+                  <p className="text-slate-300 leading-relaxed text-sm md:text-base">
+                    Hệ thống hỗ trợ toàn diện 9 cấp độ HSK 3.0 mới nhất. Thực hành học từ vựng trực quan, lật thẻ flashcard 3D, luyện thi trắc nghiệm thông minh và đặc biệt là hệ thống <strong>Luyện gõ chữ Hán (Type Text)</strong> giúp ghi nhớ tự nhiên cấu trúc chữ.
+                  </p>
+
+                  <div className="pt-2 flex flex-wrap gap-3">
+                    <button
+                      onClick={() => setActiveTab('hsk1')}
+                      className="px-5 py-2.5 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold text-sm rounded-xl shadow-lg shadow-cyan-500/15 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer flex items-center gap-1.5"
+                      id="btn-start-now"
+                    >
+                      <span>Học HSK 1 ngay</span>
+                      <ArrowRight size={15} />
+                    </button>
+                  </div>
+                </div>
+
+                <div className="hero-illustration hidden lg:flex items-center justify-center" aria-hidden="true">
+                  <svg viewBox="0 0 560 390" className="w-full max-w-[560px] h-auto" role="img" aria-label="Minh họa học chữ Hán trên máy tính">
+                    <defs>
+                      <filter id="hero-soft-shadow" x="-30%" y="-30%" width="160%" height="180%">
+                        <feDropShadow dx="0" dy="12" stdDeviation="12" floodColor="#78998f" floodOpacity="0.16" />
+                      </filter>
+                      <linearGradient id="hero-laptop" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stopColor="#c5eadc" />
+                        <stop offset="100%" stopColor="#8fcdb9" />
+                      </linearGradient>
+                    </defs>
+
+                    <circle cx="376" cy="176" r="132" fill="#ffdfe5" opacity="0.78" />
+                    <ellipse cx="314" cy="342" rx="220" ry="27" fill="#dceee7" opacity="0.8" />
+                    <path d="M372 47c17-25 51-14 50 12 23-7 38 11 28 29h-91c-11-15-2-32 13-41Z" fill="#fff4e7" />
+
+                    <g filter="url(#hero-soft-shadow)">
+                      <rect x="185" y="88" width="290" height="214" rx="18" fill="url(#hero-laptop)" stroke="#7ab9a6" strokeWidth="5" />
+                      <rect x="205" y="108" width="250" height="168" rx="10" fill="#fffdf9" />
+                      <circle cx="220" cy="121" r="4" fill="#ffb7c5" />
+                      <circle cx="234" cy="121" r="4" fill="#ffd6a5" />
+                      <circle cx="248" cy="121" r="4" fill="#a7d7c5" />
+                      <rect x="283" y="135" width="99" height="117" rx="10" fill="#f7f3e8" stroke="#ecdfcf" strokeWidth="2" />
+                      <text x="332" y="203" textAnchor="middle" fontSize="63" fontFamily="'Noto Serif SC', serif" fill="#6cae9a">学</text>
+                      <text x="332" y="234" textAnchor="middle" fontSize="22" fontFamily="'Plus Jakarta Sans', sans-serif" fontWeight="700" fill="#6cae9a">xué</text>
+                      <path d="M157 302h346l-38 42H198Z" fill="#9bd2c1" stroke="#79b5a2" strokeWidth="3" />
+                      <path d="M233 313h194l-11 13H244Z" fill="#c9eadf" />
+                      <path d="M298 332h66" stroke="#72ab9a" strokeWidth="4" strokeLinecap="round" />
+                    </g>
+
+                    <g transform="rotate(-5 130 198)" filter="url(#hero-soft-shadow)">
+                      <rect x="86" y="141" width="91" height="98" rx="11" fill="#fff1e9" stroke="#efd7ca" strokeWidth="3" />
+                      <text x="131" y="190" textAnchor="middle" fontSize="38" fontFamily="'Plus Jakarta Sans', sans-serif" fill="#6cae9a">A</text>
+                      <path d="M146 171h18M146 184h13" stroke="#f0b8ad" strokeWidth="4" strokeLinecap="round" />
+                    </g>
+
+                    <g transform="rotate(-7 138 279)" filter="url(#hero-soft-shadow)">
+                      <rect x="92" y="233" width="93" height="99" rx="11" fill="#fff7ee" stroke="#efdcc7" strokeWidth="3" />
+                      <text x="139" y="296" textAnchor="middle" fontSize="52" fontFamily="'Noto Serif SC', serif" fill="#5f6f68">汉</text>
+                    </g>
+
+                    <g filter="url(#hero-soft-shadow)">
+                      <path d="M477 117h49c11 0 20 9 20 20v37c0 11-9 20-20 20h-12l-11 14-4-14h-22c-11 0-20-9-20-20v-37c0-11 9-20 20-20Z" fill="#fff5f3" stroke="#f2dcd7" strokeWidth="3" />
+                      <path d="M501 151c8-14 27-4 20 9-5 8-13 14-20 20-7-6-15-12-20-20-7-13 12-23 20-9Z" fill="#ff9fb2" />
+                    </g>
+
+                    <g filter="url(#hero-soft-shadow)">
+                      <rect x="462" y="278" width="70" height="52" rx="7" fill="#f7d8cb" />
+                      <path d="M497 278c-3-31-30-38-39-18 19 2 31 8 39 18Z" fill="#8bc8a8" />
+                      <path d="M497 278c4-37 36-49 48-26-23 4-38 12-48 26Z" fill="#77b998" />
+                      <path d="M497 278c-1-44 10-65 25-66 4 26-3 49-25 66Z" fill="#a8d7b8" />
+                      <path d="M497 278v-54" stroke="#649f84" strokeWidth="4" strokeLinecap="round" />
+                      <rect x="438" y="330" width="109" height="16" rx="4" fill="#cdb4db" />
+                      <rect x="450" y="346" width="100" height="15" rx="4" fill="#ffd6a5" />
+                    </g>
+
+                    <text x="57" y="278" fontSize="52" fontWeight="700" fontFamily="'Plus Jakarta Sans', sans-serif" fill="#7bc4ad">C</text>
+                  </svg>
                 </div>
               </div>
             </div>
