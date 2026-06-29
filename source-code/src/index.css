@@ -469,6 +469,8 @@ input[type="text"]:focus {
 }
 
 /* --- Focus Mode Styles --- */
+/* Legacy experimental overrides are kept for reference but disabled. */
+@media (max-width: 0px) {
 div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > header#app-header:nth-of-type(1) > div:nth-of-type(1) {
   background-color: #002f15 !important;
   border-color: #1b5f1b !important;
@@ -870,6 +872,7 @@ div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-o
 div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-of-type(1) > div#level-dashboard:nth-of-type(1) > div#lessons-grid:nth-of-type(2) > div#lesson-card-11:nth-of-type(11) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(2) {
   color: #000000 !important;
 }
+}
 
 /* Unified lesson-card appearance: every lesson follows the highlighted sample. */
 #lessons-grid > .lesson-card {
@@ -964,4 +967,362 @@ div#root:nth-of-type(1) > div#main-app:nth-of-type(1) > main#app-workspace:nth-o
   border-color: #002f15 !important;
 }
 
+/* ==========================================================
+   REFERENCE PASTEL THEME
+   Palette sampled from the supplied visual reference.
+   ========================================================== */
+:root {
+  --mia-mint-50: #e8f5f0;
+  --mia-mint-100: #ddf1e6;
+  --mia-mint-500: #a7d7c5;
+  --mia-pink-50: #ffebf0;
+  --mia-pink-300: #ffb7c5;
+  --mia-peach-50: #fde8e0;
+  --mia-peach-300: #ffd6a5;
+  --mia-lilac-50: #ede7fa;
+  --mia-lilac-300: #cdb4db;
+  --mia-cream: #f7f3e8;
+  --mia-blue: #8ec5fc;
+  --mia-surface: #f0f4ff;
+  --mia-ink: #202433;
+  --mia-muted: #687386;
+  --mia-line: #d9e7e2;
+}
 
+#main-app,
+#app-workspace {
+  background: #fbfdfc !important;
+  color: var(--mia-ink) !important;
+}
+
+#app-header,
+#app-header > div {
+  background: rgba(255, 255, 255, 0.96) !important;
+  border-color: var(--mia-line) !important;
+  color: var(--mia-ink) !important;
+  box-shadow: none !important;
+}
+
+#brand-logo h1 {
+  color: var(--mia-ink) !important;
+}
+
+#brand-logo p {
+  color: var(--mia-muted) !important;
+}
+
+#brand-logo h1 span {
+  background: var(--mia-mint-50) !important;
+  border-color: var(--mia-line) !important;
+  color: #4f8f7c !important;
+}
+
+#header-stats {
+  background: #f8fbfa !important;
+  border-color: var(--mia-line) !important;
+  color: var(--mia-ink) !important;
+  box-shadow: none !important;
+}
+
+#header-stats span,
+#header-stats svg {
+  color: #5f8177 !important;
+}
+
+#header-stats .header-trophy-icon {
+  color: #75bda8 !important;
+  filter: drop-shadow(0 2px 4px rgba(117, 189, 168, 0.28));
+}
+
+#header-stats .header-flame-icon {
+  color: #ef718a !important;
+  filter: drop-shadow(0 2px 4px rgba(239, 113, 138, 0.25));
+}
+
+#level-nav,
+#level-nav > div {
+  background: #ffffff !important;
+  border-color: #e7ecea !important;
+  color: var(--mia-ink) !important;
+}
+
+#level-nav {
+  margin: 0.75rem auto 0 !important;
+  width: calc(100% - 2rem) !important;
+  max-width: 80rem !important;
+  border: 1px solid #e7ecea !important;
+  border-radius: 0.9rem !important;
+  box-shadow: 0 5px 18px rgba(68, 104, 94, 0.04) !important;
+}
+
+#level-nav button {
+  color: #404957 !important;
+}
+
+#level-nav button:hover {
+  background: var(--mia-mint-50) !important;
+  color: #467d6d !important;
+}
+
+#level-nav button.bg-gradient-to-r,
+#level-nav button#nav-home.bg-\[\#1b4d2c\] {
+  background: var(--mia-mint-500) !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+#hero-board {
+  background: linear-gradient(110deg, var(--mia-mint-50) 0%, #f8fcfa 58%, var(--mia-pink-50) 100%) !important;
+  border-color: #e5efeb !important;
+  color: var(--mia-ink) !important;
+  box-shadow: 0 16px 36px rgba(89, 132, 119, 0.07) !important;
+}
+
+#hero-board h2,
+#hero-board .text-gradient-shimmer {
+  background: none !important;
+  color: var(--mia-ink) !important;
+  -webkit-text-fill-color: var(--mia-ink) !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+}
+
+#hero-board .hero-accent {
+  color: #6eb9a3 !important;
+  -webkit-text-fill-color: #6eb9a3 !important;
+}
+
+#hero-board .hero-illustration {
+  min-height: 340px;
+  animation: mia-hero-float 5s ease-in-out infinite;
+}
+
+@keyframes mia-hero-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+#hero-board p,
+#hero-board strong {
+  color: #4d5868 !important;
+}
+
+#hero-board span.bg-cyan-500\/10 {
+  background: rgba(255, 255, 255, 0.7) !important;
+  border-color: #cfe5dd !important;
+  color: #5d9584 !important;
+}
+
+#btn-start-now,
+.bg-gradient-to-r.from-cyan-500.to-blue-600,
+.bg-gradient-to-r.from-blue-600.to-cyan-500,
+.bg-gradient-to-r.from-emerald-600 {
+  background: #75bda8 !important;
+  border-color: #75bda8 !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+#btn-start-now:hover,
+.bg-gradient-to-r.from-cyan-500.to-blue-600:hover,
+.bg-gradient-to-r.from-blue-600.to-cyan-500:hover {
+  background: #62ad97 !important;
+}
+
+#features-grid > div {
+  border-color: rgba(115, 139, 132, 0.12) !important;
+  box-shadow: 0 8px 22px rgba(60, 86, 78, 0.04) !important;
+}
+
+#features-grid > div:nth-child(1) { background: var(--mia-mint-50) !important; }
+#features-grid > div:nth-child(2) { background: var(--mia-pink-50) !important; }
+#features-grid > div:nth-child(3) { background: var(--mia-lilac-50) !important; }
+#features-grid > div:nth-child(4) { background: #fff3e4 !important; }
+
+#features-grid > div:nth-child(1) > div { background: #d5eee5 !important; color: #5c9d8a !important; }
+#features-grid > div:nth-child(2) > div { background: #ffd6df !important; color: #db7890 !important; }
+#features-grid > div:nth-child(3) > div { background: #ddd1ef !important; color: #9273b7 !important; }
+#features-grid > div:nth-child(4) > div { background: #ffe1bd !important; color: #d99050 !important; }
+
+#features-grid h3,
+#features-grid p {
+  color: var(--mia-ink) !important;
+}
+
+#level-selection-panel > h3,
+#words-glossary-list .word-list-heading,
+#stroke-order-sidebar > h3 {
+  color: #5f8f80 !important;
+  background: transparent !important;
+  border-color: var(--mia-mint-500) !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+}
+
+#level-selection-panel > div > div[id^="card-hsk"] {
+  border-color: rgba(88, 120, 110, 0.12) !important;
+  box-shadow: 0 7px 20px rgba(65, 98, 88, 0.04) !important;
+}
+
+#level-selection-panel > div > div:nth-child(4n + 1) { background: var(--mia-mint-50) !important; }
+#level-selection-panel > div > div:nth-child(4n + 2) { background: var(--mia-pink-50) !important; }
+#level-selection-panel > div > div:nth-child(4n + 3) { background: var(--mia-lilac-50) !important; }
+#level-selection-panel > div > div:nth-child(4n + 4) { background: #fff3e4 !important; }
+
+#level-selection-panel h4,
+#level-selection-panel p {
+  color: var(--mia-ink) !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+}
+
+#level-selection-panel p {
+  color: var(--mia-muted) !important;
+}
+
+#level-selection-panel span {
+  background: rgba(255, 255, 255, 0.7) !important;
+  border-color: rgba(98, 173, 151, 0.18) !important;
+  color: #568b7b !important;
+}
+
+#level-info-header,
+#level-info-header > div,
+#active-study-workspace,
+#search-results-panel {
+  background: #ffffff !important;
+  border-color: var(--mia-line) !important;
+  color: var(--mia-ink) !important;
+}
+
+#level-info-header h2,
+#level-info-header p,
+#level-info-header span {
+  background: transparent !important;
+  color: var(--mia-ink) !important;
+}
+
+#level-info-header p {
+  color: var(--mia-muted) !important;
+}
+
+#lessons-grid > .lesson-card {
+  background: var(--mia-mint-50) !important;
+  border-color: #cfe5dd !important;
+}
+
+#lessons-grid > .lesson-card:nth-child(3n + 2) { background: #fff4f6 !important; }
+#lessons-grid > .lesson-card:nth-child(3n + 3) { background: #f3effb !important; }
+
+#lessons-grid .lesson-card-number {
+  background: var(--mia-mint-500) !important;
+  border-color: var(--mia-mint-500) !important;
+  color: #ffffff !important;
+}
+
+#lessons-grid .lesson-card-label,
+#lessons-grid .lesson-card-title,
+#lessons-grid .lesson-card-action {
+  color: var(--mia-ink) !important;
+}
+
+#lessons-grid .lesson-card-description,
+#lessons-grid .lesson-card-count {
+  color: var(--mia-muted) !important;
+}
+
+#lessons-grid .lesson-card-footer {
+  border-color: rgba(85, 128, 115, 0.25) !important;
+}
+
+#words-glossary-list .word-list-item {
+  background: var(--mia-mint-50) !important;
+  border-color: #cfe5dd !important;
+  box-shadow: 0 5px 16px rgba(70, 109, 97, 0.05) !important;
+}
+
+#words-glossary-list .word-list-item:nth-child(even) {
+  background: #f9f4fc !important;
+  border-color: #e5dbef !important;
+}
+
+#words-glossary-list .word-list-item:hover,
+#words-glossary-list .word-list-item-selected {
+  background: #d7ede5 !important;
+  border-color: var(--mia-mint-500) !important;
+}
+
+#words-glossary-list .word-list-hanzi,
+#words-glossary-list .word-list-meaning {
+  color: var(--mia-ink) !important;
+}
+
+#words-glossary-list .word-list-pinyin {
+  color: #5c9d8a !important;
+}
+
+#words-glossary-list .word-list-pos {
+  background: #ffffff !important;
+  color: #6f7c88 !important;
+}
+
+#words-glossary-list .word-list-strokes {
+  background: var(--mia-mint-500) !important;
+  border-color: var(--mia-mint-500) !important;
+  color: #ffffff !important;
+}
+
+#subtab-selector,
+#typing-board,
+#stroke-order-sidebar > div,
+#word-strokes-container,
+#subtab-quiz-view > div,
+#subtab-flashcard-view > div {
+  background: #ffffff !important;
+  border-color: var(--mia-line) !important;
+  color: var(--mia-ink) !important;
+}
+
+#subtab-selector button {
+  color: var(--mia-muted) !important;
+}
+
+#subtab-selector button.bg-gradient-to-r {
+  background: var(--mia-mint-500) !important;
+  color: #ffffff !important;
+}
+
+#app-footer-credit {
+  background: var(--mia-mint-50) !important;
+  border-color: var(--mia-line) !important;
+  color: var(--mia-muted) !important;
+}
+
+@media (max-width: 767px) {
+  #level-nav {
+    width: calc(100% - 1rem) !important;
+    margin-top: 0.5rem !important;
+  }
+}
+
+/* Vietnamese-safe typography. Chinese glyphs fall back to Noto Sans SC. */
+html,
+body,
+#main-app,
+#main-app button,
+#main-app input,
+#main-app textarea,
+#main-app select,
+#main-app h1,
+#main-app h2,
+#main-app h3,
+#main-app h4,
+#main-app h5,
+#main-app h6,
+#main-app p,
+#main-app span {
+  font-family: 'Be Vietnam Pro', 'Noto Sans SC', Arial, sans-serif !important;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+#main-app .font-mono {
+  font-family: 'JetBrains Mono', 'Noto Sans SC', monospace !important;
+}
